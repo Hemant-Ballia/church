@@ -3,7 +3,7 @@ import { SiteConfig } from "@/types/site";
 export const siteConfig: SiteConfig = {
   name: "Milagris Cathedral",
   title: "Milagris Cathedral | Cathedral of Our Lady of Miracles",
-  subheading: "A Sanctuary of Faith, Heritage & Reverence in Sawantwadi",
+  subheading: "The Mother Church of the Diocese of Sindhudurg",
   dedicationTitle: "Cathedral of Our Lady of Miracles",
   diocese: "Diocese of Sindhudurg",
   rite: "Roman Rite",

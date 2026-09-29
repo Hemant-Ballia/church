@@ -49,7 +49,7 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[100svh] flex flex-col justify-between overflow-hidden bg-obsidian text-ivory pt-28 pb-10"
+      className="relative w-full h-[95svh] min-h-[680px] lg:max-h-[900px] flex flex-col justify-between overflow-hidden bg-obsidian text-ivory pt-28 pb-10"
     >
       {/* Background Image with Clip-Path Reveal */}
       <div
@@ -57,27 +57,26 @@ export function Hero() {
         className="absolute inset-0 z-0 will-change-transform"
       >
         <Image
-          src="/images/hero/cathedral-facade.jpg"
+          src="/images/cathedral/wide-facade.jpg"
           alt="Milagris Cathedral illuminated stone facade and towers at twilight"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center scale-100"
+          className="object-cover object-[center_top] md:object-center scale-100"
         />
-        {/* Deep cinematic gradient overlay */}
+        {/* Subtle cinematic gradient overlay for text readability */}
         <div
           ref={overlayRef}
-          className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/60 to-[#111111]/40"
+          className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-obsidian/80 via-obsidian/20 md:via-obsidian/0 to-transparent"
         />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent to-black/70 pointer-events-none" />
       </div>
 
-      {/* Top spacer for navbar balance */}
-      <div className="relative z-10" />
+      {/* Top spacer pushes content down */}
+      <div className="relative z-10 flex-1" />
 
-      {/* Main Center Content */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16 my-auto">
-        <div className="max-w-4xl">
+      {/* Main Bottom-Left Content */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16 pb-12 md:pb-16">
+        <div className="max-w-2xl">
           {/* Eyebrow */}
           <div
             ref={eyebrowRef}
@@ -89,11 +88,11 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Heading with dramatic clamp */}
+          {/* Heading with controlled size */}
           <div className="overflow-hidden">
             <h1
               ref={headingLine1Ref}
-              className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-tight font-light text-ivory leading-[0.92] uppercase"
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-tight font-light text-ivory leading-[1.1] uppercase"
             >
               MILAGRIS
             </h1>
@@ -101,7 +100,7 @@ export function Hero() {
           <div className="overflow-hidden mb-6 sm:mb-8">
             <h1
               ref={headingLine2Ref}
-              className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-tight font-light text-stone leading-[0.92] uppercase"
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-tight font-light text-stone leading-[1.1] uppercase"
             >
               CATHEDRAL
             </h1>
@@ -125,12 +124,12 @@ export function Hero() {
           {/* Call to Actions */}
           <div
             ref={ctasRef}
-            className="flex flex-wrap items-center gap-4 sm:gap-6"
+            className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5"
           >
             <Button
               variant="primary"
               onClick={scrollToExplore}
-              className="px-7 py-4"
+              className="px-6 py-3.5 text-[11px] sm:text-xs"
             >
               Explore the Cathedral
             </Button>
@@ -138,7 +137,7 @@ export function Hero() {
               variant="outline"
               href="/visit"
               withArrow
-              className="px-7 py-4"
+              className="px-6 py-3.5 text-[11px] sm:text-xs"
             >
               Plan Your Visit
             </Button>

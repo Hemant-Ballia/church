@@ -96,10 +96,10 @@ export function DedicationSection() {
             }
           }}
           aria-label="Watch the Consecration Mass video"
-          className="group relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-surface cursor-pointer will-change-transform focus:outline-none focus:ring-1 focus:ring-gold"
+          className="group relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden bg-surface cursor-pointer will-change-transform focus:outline-none focus:ring-1 focus:ring-gold"
         >
           <Image
-            src="/images/cathedral/dedication-celebration.jpg"
+            src="/images/cathedral/high-altar-ceremony.jpg"
             alt="Solemn dedication liturgy concelebrated by Cardinals and Bishops at Milagris Cathedral"
             fill
             sizes="100vw"
@@ -111,7 +111,7 @@ export function DedicationSection() {
 
           {/* Centered Play Trigger */}
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center p-6">
-            <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full border border-gold/60 bg-obsidian/80 backdrop-blur-sm flex items-center justify-center text-gold transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-obsidian shadow-2xl">
+            <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full border border-gold/60 bg-obsidian/80 backdrop-blur-sm flex items-center justify-center text-gold transition-all duration-300 group-hover:scale-110 group-hover:bg-gold group-hover:text-obsidian">
               <Play className="w-6 sm:w-7 h-6 sm:h-7 fill-current ml-0.5" />
             </div>
 

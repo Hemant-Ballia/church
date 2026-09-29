@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Milagris Cathedral | Cathedral of Our Lady of Miracles",
     description:
-      "A sacred sanctuary of faith, heritage, and community reverence in Sawantwadi, Maharashtra. Consecrated May 2026.",
+      "The Mother Church of the Diocese of Sindhudurg, located in Sawantwadi, Maharashtra. Reconstructed and solemnly consecrated in May 2026.",
     url: "https://milagriscathedral.in",
     siteName: "Milagris Cathedral",
     images: [

@@ -9,10 +9,6 @@ export function Footer() {
 
   return (
     <footer className="bg-[#0b0b0b] text-ivory border-t border-stone/10 pt-20 pb-12 relative overflow-hidden">
-      {/* Subtle architectural background watermark */}
-      <div className="absolute top-0 right-0 pointer-events-none select-none opacity-[0.03] text-stone font-serif text-[18vw] leading-none -translate-y-12">
-        MILAGRIS
-      </div>
 
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-stone/10">

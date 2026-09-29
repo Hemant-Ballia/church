@@ -19,7 +19,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-out ${
           isScrolled
-            ? "bg-[#111111]/92 backdrop-blur-md border-b border-stone/10 py-3.5 shadow-2xl"
+            ? "bg-[#111111]/92 backdrop-blur-md border-b border-stone/10 py-3.5"
             : "bg-gradient-to-b from-black/80 via-black/40 to-transparent py-6 md:py-7"
         }`}
       >
@@ -34,52 +34,23 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Center Navigation Links (Desktop) */}
-          <nav
-            aria-label="Main Navigation"
-            className="hidden md:flex items-center gap-8 lg:gap-10"
-          >
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`relative py-1 text-xs uppercase tracking-widest font-medium transition-colors duration-300 ${
-                    isActive
-                      ? "text-gold"
-                      : "text-stone hover:text-ivory"
-                  }`}
-                >
-                  {item.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-px bg-gold" />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
 
-          {/* Right Action (Desktop) */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button
-              variant="outline"
-              href="/visit"
-              withArrow
-              className="py-2.5 px-5 text-xs tracking-widest"
-            >
-              Visit Cathedral
-            </Button>
-          </div>
 
-          {/* Mobile Menu Trigger */}
-          <div className="flex md:hidden items-center gap-3">
+          {/* Universal Hamburger Menu Trigger */}
+          <div className="flex items-center gap-4">
             <button
               onClick={() => setMobileMenuOpen(true)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="navigation-menu"
               aria-label="Open Navigation Menu"
-              className="p-2.5 border border-stone/20 text-ivory hover:text-gold hover:border-gold transition-colors"
+              className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-obsidian rounded-sm"
             >
-              <Menu className="w-5 h-5" />
+              <span className="hidden sm:block text-xs font-sans tracking-widest uppercase text-ivory group-hover:text-gold transition-colors">
+                Menu
+              </span>
+              <div className="p-2 border border-stone/20 text-ivory group-hover:text-gold group-hover:border-gold transition-colors">
+                <Menu className="w-5 h-5" strokeWidth={1.5} />
+              </div>
             </button>
           </div>
         </div>

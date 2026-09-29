@@ -82,7 +82,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Navigation Menu"
-      className="fixed inset-0 z-50 bg-[#0e0e0e]/98 backdrop-blur-xl flex flex-col justify-between p-8 md:hidden opacity-0 invisible"
+      className="fixed inset-0 z-50 bg-[#0e0e0e]/95 backdrop-blur-2xl flex flex-col justify-between p-8 sm:p-12 md:p-16 opacity-0 invisible"
     >
       {/* Header bar */}
       <div className="flex items-center justify-between border-b border-stone/10 pb-6">
@@ -116,7 +116,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 }}
                 href={item.href}
                 onClick={onClose}
-                className="group flex items-center justify-between py-2 text-2xl font-serif tracking-wide transition-colors"
+                className="group inline-flex items-center gap-4 py-2 text-3xl sm:text-4xl md:text-5xl font-serif tracking-wide transition-colors"
               >
                 <span
                   className={`${
@@ -135,23 +135,31 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       </nav>
 
       {/* Bottom metadata */}
-      <div ref={metaRef} className="border-t border-stone/10 pt-6 space-y-3">
-        <div className="flex items-center gap-2 text-xs text-stone">
-          <MapPin className="w-3.5 h-3.5 text-gold shrink-0" />
-          <span>Salaiwada, Sawantwadi, Maharashtra 416510</span>
-        </div>
-        <div className="flex items-center gap-2 text-xs text-stone">
-          <Phone className="w-3.5 h-3.5 text-gold shrink-0" />
-          <span>{siteConfig.location.phone}</span>
-        </div>
-        <div className="pt-2">
+      <div ref={metaRef} className="border-t border-stone/10 pt-8 sm:pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="space-y-4">
           <Link
             href="/visit"
             onClick={onClose}
-            className="block w-full py-3 text-center border border-gold/40 text-gold uppercase tracking-[0.2em] text-xs font-medium hover:bg-gold hover:text-obsidian transition-colors"
+            className="inline-flex items-center justify-center px-8 py-4 border border-gold/40 text-gold uppercase tracking-[0.2em] text-xs font-medium hover:bg-gold hover:text-obsidian transition-colors"
           >
-            Plan Your Visit
+            Visit Cathedral
           </Link>
+        </div>
+        
+        <div className="space-y-3">
+          <span className="text-xs tracking-widest text-muted uppercase font-sans">Location</span>
+          <div className="flex items-start gap-2 text-sm text-stone">
+            <MapPin className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+            <span>Sawantwadi, Maharashtra</span>
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <span className="text-xs tracking-widest text-muted uppercase font-sans">Contact</span>
+          <div className="flex items-center gap-2 text-sm text-stone">
+            <Phone className="w-4 h-4 text-gold shrink-0" />
+            <span>{siteConfig.location.phone}</span>
+          </div>
         </div>
       </div>
     </div>

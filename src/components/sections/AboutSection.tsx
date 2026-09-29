@@ -93,10 +93,10 @@ export function AboutSection() {
           <div className="lg:col-span-6 relative order-2 lg:order-1">
             <div
               ref={imgMainRef}
-              className="relative w-full aspect-[4/3] overflow-hidden bg-surface will-change-transform shadow-2xl"
+              className="relative w-full aspect-[4/3] overflow-hidden bg-surface will-change-transform"
             >
               <Image
-                src="/images/architecture/nave-interior.jpg"
+                src="/images/cathedral/interior-nave-view.jpg"
                 alt="Interior nave of Milagris Cathedral looking toward the sanctuary"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -107,7 +107,7 @@ export function AboutSection() {
             {/* Overlapping Detail Image */}
             <div
               ref={imgOverlapRef}
-              className="relative sm:absolute sm:-bottom-10 sm:-right-8 w-full sm:w-3/5 aspect-[4/3] mt-6 sm:mt-0 overflow-hidden border border-stone/20 shadow-2xl bg-surface will-change-transform"
+              className="relative sm:absolute sm:-bottom-10 sm:-right-8 w-full sm:w-3/5 aspect-[4/3] mt-6 sm:mt-0 overflow-hidden border border-stone/20 bg-surface will-change-transform"
             >
               <Image
                 src="/images/architecture/facade-detail.jpg"

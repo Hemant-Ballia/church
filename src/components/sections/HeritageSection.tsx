@@ -71,12 +71,7 @@ export function HeritageSection() {
                 </p>
               </div>
 
-              {/* Dynamic Active Year - Massive Editorial Scale */}
-              <div className="hidden lg:block pb-10">
-                <span className="text-[7rem] xl:text-[10rem] font-bold tracking-tighter text-white font-mono leading-none transition-all duration-300 ease-out select-none">
-                  {activeYear}
-                </span>
-              </div>
+              {/* Clean layout, removed oversized year */}
             </div>
           </div>
 
@@ -90,12 +85,9 @@ export function HeritageSection() {
                     itemsRef.current[idx] = el;
                   }}
                   // Baseline inactive state + transition details
-                  className="group py-20 sm:py-28 border-b border-white/10 last:border-0 
-                             opacity-25 translate-y-6 blur-[1px] 
-                             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-                             [&.active-timeline-item]:opacity-100 
-                             [&.active-timeline-item]:translate-y-0 
-                             [&.active-timeline-item]:blur-0"
+                  className="group py-16 sm:py-24 border-b border-white/10 last:border-0 
+                             opacity-50 transition-opacity duration-500 ease-out
+                             [&.active-timeline-item]:opacity-100"
                 >
                   {/* Mobile-only Year Header (Since left panel un-sticks on mobile) */}
                   <div className="lg:hidden mb-6 flex items-center gap-4">

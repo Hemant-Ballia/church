@@ -5,6 +5,7 @@ import { HeritageSection } from "@/components/sections/HeritageSection";
 import { DedicationSection } from "@/components/sections/DedicationSection";
 import { ArchitectureSection } from "@/components/sections/ArchitectureSection";
 import { StatueSection } from "@/components/sections/StatueSection";
+import { ReelSection } from "@/components/sections/ReelSection";
 import { GallerySection } from "@/components/sections/GallerySection";
 import { ParishSection } from "@/components/sections/ParishSection";
 import { VisitSection } from "@/components/sections/VisitSection";
@@ -33,6 +34,9 @@ export default function HomePage() {
 
       {/* Our Lady of Miracles (Patroness) */}
       <StatueSection />
+
+      {/* Reel Section - Heritage Video */}
+      <ReelSection />
 
       {/* Visual Archive Gallery */}
       <GallerySection />

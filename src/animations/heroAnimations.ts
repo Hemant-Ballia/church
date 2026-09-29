@@ -33,12 +33,10 @@ export function animateHero({
     defaults: { ease: "power3.out" },
   });
 
-  // Initial state settings
   if (image) {
     gsap.set(image, {
-      clipPath: "inset(0 0 100% 0)",
-      scale: 1.08,
-      filter: "brightness(0.7)",
+      opacity: 0,
+      scale: 1.04,
     });
   }
 
@@ -51,7 +49,7 @@ export function animateHero({
   }
 
   if (validHeadings.length > 0) {
-    gsap.set(validHeadings, { opacity: 0, y: 40 });
+    gsap.set(validHeadings, { opacity: 0, y: 30 });
   }
 
   if (description) {
@@ -67,18 +65,16 @@ export function animateHero({
   }
 
   // Cinematic timeline sequence
-  // 0.2s: image reveal via clip-path and gentle scale
   if (image) {
     tl.to(
       image,
       {
-        clipPath: "inset(0 0 0% 0)",
-        scale: 1.0,
-        filter: "brightness(0.85)",
-        duration: 1.8,
-        ease: "power2.inOut",
+        opacity: 1,
+        scale: 1,
+        duration: 1.4,
+        ease: "power2.out",
       },
-      0.2
+      0.1
     );
   }
 

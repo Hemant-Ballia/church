@@ -7,7 +7,6 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { registerGSAP, gsap } from "@/animations/gsapInit";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-const PRESET_AMOUNTS = [500, 1000, 2500, 5000];
 
 const CAUSES = [
   {
@@ -38,7 +37,6 @@ const CAUSES = [
 
 export function DonationSection() {
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
-  const [selectedAmount, setSelectedAmount] = useState<number | "custom">(1000);
   const [customAmount, setCustomAmount] = useState<string>("");
   const [selectedCause, setSelectedCause] = useState<string>("general");
   const [donorName, setDonorName] = useState("");
@@ -80,8 +78,7 @@ export function DonationSection() {
     return () => ctx.revert();
   }, [reducedMotion]);
 
-  const effectiveAmount =
-    selectedAmount === "custom" ? Number(customAmount) || 0 : selectedAmount;
+  const effectiveAmount = Number(customAmount) || 0;
 
   const handleCopy = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
@@ -91,8 +88,8 @@ export function DonationSection() {
 
   const handleDonateSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (effectiveAmount < 100) {
-      alert("Please choose or enter a donation amount of at least ₹100.");
+    if (effectiveAmount <= 0) {
+      alert("Please enter a valid positive donation amount.");
       return;
     }
     // Respectful transition: displays official direct parish account details and donation summary
@@ -121,7 +118,7 @@ export function DonationSection() {
         {/* Donation Card */}
         <div
           ref={cardRef}
-          className="max-w-3xl mx-auto border border-stone/15 bg-surface/40 p-6 sm:p-10 md:p-12 shadow-2xl relative"
+          className="max-w-3xl mx-auto border border-stone/15 bg-surface/40 p-6 sm:p-10 md:p-12 relative"
         >
           {!showDirectTransfer ? (
             <form onSubmit={handleDonateSubmit} className="space-y-8">
@@ -159,77 +156,27 @@ export function DonationSection() {
               {/* Amount Selection */}
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <label className="text-xs uppercase tracking-widest text-stone font-medium">
-                    Select Contribution Amount
+                  <label htmlFor="custom-amount" className="text-xs uppercase tracking-widest text-stone font-medium">
+                    Donation Amount
                   </label>
                   <span className="text-xs text-stone-dark">Indian Rupees (INR)</span>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
-                  {PRESET_AMOUNTS.map((amt) => {
-                    const isSelected = selectedAmount === amt;
-                    return (
-                      <button
-                        key={amt}
-                        type="button"
-                        onClick={() => {
-                          setSelectedAmount(amt);
-                          setCustomAmount("");
-                        }}
-                        className={`py-3.5 px-4 text-center border font-serif text-lg sm:text-xl transition-all ${
-                          isSelected
-                            ? "border-gold bg-gold/15 text-gold font-medium"
-                            : "border-stone/20 bg-[#161616] text-ivory hover:border-gold/50"
-                        }`}
-                      >
-                        ₹{amt.toLocaleString("en-IN")}
-                      </button>
-                    );
-                  })}
-
-                  <button
-                    type="button"
-                    onClick={() => setSelectedAmount("custom")}
-                    className={`py-3.5 px-4 text-center border text-xs uppercase tracking-wider font-medium transition-all ${
-                      selectedAmount === "custom"
-                        ? "border-gold bg-gold/15 text-gold font-semibold"
-                        : "border-stone/20 bg-[#161616] text-stone hover:text-ivory hover:border-gold/50"
-                    }`}
-                  >
-                    Custom
-                  </button>
+                <div className="relative">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 font-serif text-xl text-gold">
+                    ₹
+                  </span>
+                  <input
+                    id="custom-amount"
+                    type="number"
+                    min="1"
+                    step="any"
+                    value={customAmount}
+                    onChange={(e) => setCustomAmount(e.target.value)}
+                    placeholder="Enter amount"
+                    className="w-full bg-[#161616] border border-gold/40 pl-10 pr-4 py-3.5 text-base text-ivory placeholder:text-muted/60 focus:border-gold focus:outline-none transition-colors"
+                  />
                 </div>
-
-                {/* Custom Amount Input Field */}
-                {selectedAmount === "custom" && (
-                  <div className="mt-4 pt-4 border-t border-stone/10">
-                    <label
-                      htmlFor="custom-amount"
-                      className="block text-xs uppercase tracking-wider text-stone-light mb-2"
-                    >
-                      Enter Custom Offering Amount
-                    </label>
-                    <div className="relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 font-serif text-xl text-gold">
-                        ₹
-                      </span>
-                      <input
-                        id="custom-amount"
-                        type="number"
-                        min="100"
-                        step="100"
-                        value={customAmount}
-                        onChange={(e) => setCustomAmount(e.target.value)}
-                        placeholder="e.g. 10000"
-                        autoFocus
-                        className="w-full bg-[#161616] border border-gold/40 pl-10 pr-4 py-3.5 text-base text-ivory placeholder:text-muted/60 focus:border-gold focus:outline-none transition-colors"
-                      />
-                    </div>
-                    <p className="text-xs text-muted mt-1.5 font-light">
-                      Please enter any amount of ₹100 or greater.
-                    </p>
-                  </div>
-                )}
               </div>
 
               {/* Ministry Designation / Cause */}

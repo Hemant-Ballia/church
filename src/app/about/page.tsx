@@ -14,41 +14,45 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="bg-obsidian text-ivory">
-      {/* Inner Page Hero */}
-      <section className="relative min-h-[55vh] sm:min-h-[65vh] flex items-end pb-16 pt-36 bg-[#0e0e0e] overflow-hidden border-b border-stone/10">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/architecture/nave-interior.jpg"
-            alt="Vaulted nave of Milagris Cathedral"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e0e] via-[#0e0e0e]/75 to-transparent" />
-        </div>
-
+      {/* Cinematic Editorial Header */}
+      <section className="relative pt-32 pb-12 sm:pt-48 sm:pb-20 overflow-hidden">
         <Container size="default" className="relative z-10">
-          <SectionLabel label="Identity & Vocation" className="mb-4" />
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-light text-ivory leading-tight">
-            ABOUT <br />
-            <span className="text-gold italic font-normal">MILAGRIS CATHEDRAL</span>
-          </h1>
-          <p className="mt-4 text-stone text-base sm:text-lg max-w-2xl font-light">
-            The episcopal seat of the Roman Catholic Diocese of Sindhudurg, dedicated to Our Lady of Miracles in Sawantwadi, Maharashtra.
-          </p>
+          <div className="max-w-4xl space-y-6">
+            <SectionLabel label="Our History & Identity" className="text-gold" />
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl font-light text-ivory leading-[1.05] tracking-tight">
+              A Legacy of <br className="hidden sm:block" />
+              <span className="italic text-stone-300">Faith & Grace</span>
+            </h1>
+            <p className="text-stone text-lg sm:text-xl font-light leading-relaxed max-w-2xl pt-4">
+              Explore the sacred identity, history, and mission of Milagris Cathedral, the historic seat of the Roman Catholic Diocese of Sindhudurg.
+            </p>
+          </div>
         </Container>
       </section>
 
+      {/* Standalone Clear Image - Full Bleed on Mobile, Framed on Desktop */}
+      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-20 sm:pb-28">
+        <div className="relative w-full aspect-[4/3] md:aspect-video bg-[#0e0e0e] border border-stone/15 overflow-hidden">
+          <Image
+            src="/images/cathedral/interior-nave-view.jpg"
+            alt="Interior nave of Milagris Cathedral"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 90vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
+
       {/* Narrative Chronicle */}
-      <section className="py-20 sm:py-28 bg-[#111111] border-b border-stone/10">
+      <section className="py-24 sm:py-32 bg-[#0a0a0a] border-y border-stone/10">
         <Container size="narrow">
-          <div className="space-y-12 text-stone font-light text-base sm:text-lg leading-relaxed">
-            <div>
-              <span className="text-xs uppercase tracking-widest text-gold font-medium block mb-3">
+          <div className="space-y-16 text-stone font-light text-lg sm:text-xl leading-relaxed">
+            <div className="space-y-6">
+              <span className="text-xs uppercase tracking-[0.2em] text-gold font-medium block">
                 Diocesan Mother Church
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-ivory font-light mb-6">
+              <h2 className="font-serif text-3xl sm:text-5xl text-ivory font-light leading-snug">
                 A Sanctuary of Faith & Unity
               </h2>
               <p>
@@ -56,11 +60,11 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="p-8 border-l-2 border-gold bg-surface/50 my-8">
-              <blockquote className="font-serif text-xl sm:text-2xl text-ivory italic leading-snug">
+            <div className="py-10 px-8 sm:px-12 border border-gold/20 bg-gold/5 my-12 text-center">
+              <blockquote className="font-serif text-2xl sm:text-3xl text-ivory italic leading-relaxed">
                 &ldquo;The cathedral is more than a majestic structure of stone; it is the spiritual home where God gathers His people as one family in faith.&rdquo;
               </blockquote>
-              <span className="text-xs uppercase tracking-widest text-gold block mt-4">
+              <span className="text-xs uppercase tracking-[0.2em] text-gold block mt-6 font-medium">
                 From the Solemn Consecration Rite • May 2026
               </span>
             </div>
